@@ -28,6 +28,9 @@ console.log(options[Math.floor(Math.random()*options.length)]);
         while (answer == null){
             anwer = prompt ("Choose either Rock, Paper, or Scissors");
         }
+        answer = answer.toUpperCase();
+        check = validateAnswer(answer);
+
     function  validateAnswer(option){
         if(options.includes(option)){
             return true
@@ -35,4 +38,14 @@ console.log(options[Math.floor(Math.random()*options.length)]);
             return false
         }
     }
+    function winCheck (optionP, optionC){
+        if (optionP === optionC){
+            return "Tie game";
+     } else if (optionP === "PAPER" && optionC === "ROCK" || optionP === "ROCK" && optionC === "SCISSORS" || optionP === "SCISSORS" && optionC === "PAPER")
+        return "Winner!Gagneau! Player has won!";
+        else{
+            return "Computer has won!"
+        }
+        }
+
     game();
