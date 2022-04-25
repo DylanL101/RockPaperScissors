@@ -4,15 +4,28 @@ function computerOption(){
     return options[Math.floor(Math.random()*options.length)]
     
 }
+function game(){
+   
+    const buttons = document.querySelectorAll('button');
+        buttons.forEach((button) => {
+            button.addEventListener('click', () => {
+                if (button.id){
+                    playRound(button.id);
+                    
+                }
+            });
+        });
 
-    function game(){
-        for (let i= 0; i<= 5; i++){
-            playRound(i);
-        }
-        logWins();
+
+    function playRound(playerOption)
+    let winTwo = winCheck();
+    if (winTwo >= 5){
+        return;
     }
     
-    function playRound(match){
+    
+    
+    function playRound(playerOption){
     const playerSelection = playerOption();
     const computerSelection = computerOption();
 
@@ -21,27 +34,8 @@ function computerOption(){
     logMatch(playerSelection,computerSelection, win, match);
     }
     
-    function playerOption(){
-        let answer = prompt("Choose either Rock, Paper, or Scissors");
-        while (answer == null){
-            answer = prompt("Choose either Rock, Paper, or Scissors");
-            }
-        answer = answer.toUpperCase();
-        let check = validateAnswer(answer)
-        while (check == false){
-            answer = prompt(" Please choose either Rock, Paper, or Scissors. Make sure your spelling is correct.");
-        while (answer == null){
-            answer = prompt ("Choose either Rock, Paper, or Scissors");
-        }
-        answer = answer.toUpperCase()
-        check = validateAnswer(answer);
-    }
-        return answer;
-}
-    function  validateAnswer(option){
-        return options.includes(option);
-           
-    }
+    
+    
     function winCheck (optionP, optionC){
         if (optionP === optionC){
             return "Tie game";
@@ -68,5 +62,5 @@ function computerOption(){
         console.log( win, "Won the Match");
         
     }
-
+}
 game();
