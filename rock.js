@@ -1,9 +1,10 @@
 const options =["ROCK", "PAPER", "SCISSORS"]
 const winner = []
-function computerOption(){
+function computerPick(){
     return options[Math.floor(Math.random()*options.length)]
     
 }
+function retry ()
 function game(){
    
     const buttons = document.querySelectorAll('button');
@@ -16,7 +17,7 @@ function game(){
             });
         });
 
-
+    }
     function playRound(playerOption)
     let winTwo = winCheck();
     if (winTwo >= 5){
@@ -26,12 +27,37 @@ function game(){
     
     
     function playRound(playerOption){
-    const playerSelection = playerOption();
-    const computerSelection = computerOption();
+    
+    const computerOption = computerPick();
 
     const win = winCheck(playerSelection, computerSelection);
     winner.push(win);
-    logMatch(playerSelection,computerSelection, win, match);
+    trackWins();
+    displayMatch(playerOption,computerOption ,win)
+    
+    }
+     function displayMatch(playerOption,computerOption ,win){
+        document.querySelector('.gamerOption').textContent =`You chose : ${playerOption}`;
+        document.querySelector('.compOption').textContent =`The computer chose : ${computerOption}`;
+        document.querySelector('.ties').textContent =`Number of Ties : ${tie}`;
+    
+     }
+        
+    
+    function trackWins(){
+        let playerWins = winner.filter((item) => item == "Winner!Gagneau! Player has won!").length;
+        let computerWins = winner.filter((item) => item == "Computer has won!").length;
+        let tie = winner.filter((item) => item == "Tie game").length;
+        document.querySelector('.gamerScore').textContent = ` The score is: ${playerWins}`;
+        document.querySelector('.compScore').textContent = ` The computer's score is: ${computerWins}`;
+        document.querySelector('.ties').textContent = ` Number of Ties: ${tie}`;
+    }
+    function confirmWin(){
+    let playerWins = winner.filter((item) => item == "Winner!Gagneau! Player has won!").length;
+    let computerWins = winner.filter((item) => item == "Computer has won!").length;
+    let tie = winner.filter((item) => item == "Tie game").length;
+     return Math.max(playerWins, computerWins)
+
     }
     
     
@@ -49,17 +75,10 @@ function game(){
     let playerWins = winner.filter((item) => item == "Winner!Gagneau! Player has won!").length;
     let computerWins = winner.filter((item) => item == "Computer has won!").length;
     let tie = winner.filter((item) => item == "Tie game").length;
-    console.log("Result");
-    console.log("Player Wins:", playerWins);
-    console.log("Computer Wins:", computerWins);
-    console.log("Ties:", tie);
+    
 }
 
     function logMatch(playerOption,computerOption, win,match){
-        console.log("Match:", match);
-        console.log("Player Option", playerOption);
-        console.log("Computer Option", computerOption);
-        console.log( win, "Won the Match");
         
     }
 }
