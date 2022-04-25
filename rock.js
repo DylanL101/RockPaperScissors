@@ -1,18 +1,18 @@
 const options =["ROCK", "PAPER", "SCISSORS"]
-const winner = []
+let winner = []
 function computerPick(){
     return options[Math.floor(Math.random()*options.length)]
     
 }
 function retry(){
-    winner =[]
+    winner =[];
     document.querySelector('.gamerScore').textContent = "The score is : 0";
     document.querySelector('.compScore').textContent = "The computer's score is : 0";
     document.querySelector('.ties').textContent = "Number of Ties : 0";
     document.querySelector('.winner').textContent = "";
     document.querySelector('.gamerOption').textContent = "";
     document.querySelector('.compOption').textContent = "";
-    document.querySelector('retry').style.display = "none";
+    document.querySelector('.retry').style.display = "none";
     
     
     
@@ -68,7 +68,7 @@ function game(){
      function displayMatch(playerOption,computerOption ,win){
         document.querySelector('.gamerOption').textContent =`You chose : ${playerOption}`;
         document.querySelector('.compOption').textContent =`The computer chose : ${computerOption}`;
-        document.querySelector('.winner').textContent = `The winner is: ${win}`;
+        document.querySelector('.winner').textContent = `The outcome is: ${win}`;
     
      }
         

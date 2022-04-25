@@ -4,3 +4,25 @@
 .retry{
     display: none;
 }
+body {
+    background-color: peachpuff;
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    max-height: 100%;
+    align-items: center;
+    justify-content: center;
+    
+
+
+}
+.header{
+    font-size: 28px;
+}
+.gamerSection{
+    font-size: 20px;
+}
+.compSection{
+    font-size: 20px;
+}
+
