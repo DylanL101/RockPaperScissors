@@ -4,7 +4,9 @@ function computerPick(){
     return options[Math.floor(Math.random()*options.length)]
     
 }
-function retry ()
+function retry(){
+
+}
 function game(){
    
     const buttons = document.querySelectorAll('button');
@@ -18,12 +20,12 @@ function game(){
         });
 
     }
-    function playRound(playerOption)
+    function playRound(playerOption){
     let winTwo = winCheck();
     if (winTwo >= 5){
         return;
     }
-    
+}
     
     
     function playRound(playerOption){
@@ -34,12 +36,27 @@ function game(){
     winner.push(win);
     trackWins();
     displayMatch(playerOption,computerOption ,win)
+    winTwo = winCheck();
+    if (winTwo == 5){
+        endMatch();
+    }
     
+    
+    }
+    function endMatch(){
+        let pWins = winner.filter((item) => item == "Winner!Gagneau! Player has won!").length;
+            if (pWins == 5){
+                document.querySelector('.winner').textContent = "You won the 5 Matches!";
+            }else {
+                document.querySelector('.winner').textContent = "The computer won 5 Matches!"
+            }
+
     }
      function displayMatch(playerOption,computerOption ,win){
         document.querySelector('.gamerOption').textContent =`You chose : ${playerOption}`;
         document.querySelector('.compOption').textContent =`The computer chose : ${computerOption}`;
         document.querySelector('.ties').textContent =`Number of Ties : ${tie}`;
+        document.querySelector('.winner').textContent = `The winner is: ${winner}`;
     
      }
         
@@ -78,8 +95,5 @@ function game(){
     
 }
 
-    function logMatch(playerOption,computerOption, win,match){
-        
-    }
-}
+   
 game();
