@@ -52,9 +52,9 @@ function computerOption(){
      }
  }
  function logWins(){
-    let playerWins = winner.filter((item) => item == "Player").length;
-    let computerWins = winner.filter((item) => item == "Computer").length;
-    let tie = winner.filter((item) => item == "Ties").length;
+    let playerWins = winner.filter((item) => item == "Winner!Gagneau! Player has won!").length;
+    let computerWins = winner.filter((item) => item == "Computer has won!").length;
+    let tie = winner.filter((item) => item == "Tie game").length;
     console.log("Result");
     console.log("Player Wins:", playerWins);
     console.log("Computer Wins:", computerWins);
